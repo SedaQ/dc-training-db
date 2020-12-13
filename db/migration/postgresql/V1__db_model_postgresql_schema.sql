@@ -1,4 +1,3 @@
-
 CREATE TABLE public.address (
     id_address bigserial NOT NULL,
     city character varying(45) NOT NULL,
@@ -57,12 +56,23 @@ CREATE TABLE public.person_has_meeting (
 
 ALTER TABLE public.person_has_meeting OWNER TO postgres;
 
-CREATE TABLE public.person_role (
+CREATE TABLE public.person_has_role (
+    id_person_has_role bigserial NOT NULL,
     id_person bigint NOT NULL,
-    role character varying(255) NOT NULL
+    id_role bigint NOT NULL,
+    date_created timestamp without time zone NOT NULL,
+    date_deleted timestamp without time zone
 );
 
-ALTER TABLE public.person_role OWNER TO postgres;
+ALTER TABLE public.person_has_role OWNER TO postgres;
+
+CREATE TABLE public.role (
+    id_role bigserial NOT NULL,
+    name character varying(45) NOT NULL,
+    description character varying(255)
+);
+
+ALTER TABLE public.role OWNER TO postgres;
 
 CREATE TABLE public.relationship (
     id_relationship bigserial NOT NULL,
@@ -93,8 +103,10 @@ ALTER TABLE ONLY public.person_has_meeting
     ADD CONSTRAINT person_has_meeting_pkey PRIMARY KEY (id_person, id_meeting);
 ALTER TABLE ONLY public.person
     ADD CONSTRAINT person_pkey PRIMARY KEY (id_person);
-ALTER TABLE ONLY public.person_role
-    ADD CONSTRAINT person_role_pkey PRIMARY KEY (id_person, role);
+ALTER TABLE ONLY public.person_has_role
+    ADD CONSTRAINT person_has_role_pkey PRIMARY KEY (id_person_has_role);
+ALTER TABLE ONLY public.role
+    ADD CONSTRAINT role_pkey PRIMARY KEY (id_role);
 ALTER TABLE ONLY public.relationship
     ADD CONSTRAINT relationship_pkey PRIMARY KEY (id_relationship);
 ALTER TABLE ONLY public.relationship_type
@@ -113,11 +125,13 @@ ALTER TABLE ONLY public.relationship
     ADD CONSTRAINT fkahw6wujjfkm21yqfhar09k3fk FOREIGN KEY (id_person1) REFERENCES public.person(id_person);
 ALTER TABLE ONLY public.relationship
     ADD CONSTRAINT fkdkyv2jjonl0trwvbsnmw7wugr FOREIGN KEY (id_person2) REFERENCES public.person(id_person);
-ALTER TABLE ONLY public.person_role
-    ADD CONSTRAINT fkqbljdqxhnn666ss0ex4fnbm34 FOREIGN KEY (id_person) REFERENCES public.person(id_person);
 ALTER TABLE ONLY public.contact
     ADD CONSTRAINT fksdofi6j6flua1it19rnx6xcvb FOREIGN KEY (id_person) REFERENCES public.person(id_person);
 ALTER TABLE ONLY public.person
     ADD CONSTRAINT fksukp9r53qgth8ex065xwuw86t FOREIGN KEY (id_address) REFERENCES public.address(id_address);
 ALTER TABLE ONLY public.contact
     ADD CONSTRAINT fkx0wbmi3et03b7xwys8sa0d7 FOREIGN KEY (id_contact_type) REFERENCES public.contact_type(id_contact_type);
+ALTER TABLE ONLY public.person_has_role
+    ADD CONSTRAINT fk6nyhtkxr5sh5ffdcxefbnwfjk FOREIGN KEY (id_person) REFERENCES public.person(id_person);
+ALTER TABLE ONLY public.person_has_role
+    ADD CONSTRAINT fk92pqvoxbjila4o02fp18rstq5 FOREIGN KEY (id_role) REFERENCES public.role(id_role);
