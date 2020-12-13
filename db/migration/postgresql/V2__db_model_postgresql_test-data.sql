@@ -260,56 +260,6 @@ INSERT INTO public.person_has_meeting (id_person, id_meeting) VALUES (2, 2);
 INSERT INTO public.person_has_meeting (id_person, id_meeting) VALUES (3, 2);
 INSERT INTO public.person_has_meeting (id_person, id_meeting) VALUES (4, 3);
 
-
---
--- TOC entry 2255 (class 0 OID 18061)
--- Dependencies: 212
--- Data for Name: role; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-INSERT INTO public.person_role (id_person, role) VALUES (1, 'ADMIN');
-INSERT INTO public.person_role (id_person, role) VALUES (2, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (3, 'FIRST_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (4, 'SECOND_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (5, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (6, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (8, 'ADMIN');
-INSERT INTO public.person_role (id_person, role) VALUES (9, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (10, 'FIRST_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (11, 'SECOND_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (12, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (13, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (14, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (15, 'ADMIN');
-INSERT INTO public.person_role (id_person, role) VALUES (16, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (17, 'FIRST_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (18, 'SECOND_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (19, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (20, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (21, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (22, 'ADMIN');
-INSERT INTO public.person_role (id_person, role) VALUES (23, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (24, 'FIRST_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (25, 'SECOND_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (26, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (27, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (28, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (29, 'ADMIN');
-INSERT INTO public.person_role (id_person, role) VALUES (30, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (31, 'FIRST_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (32, 'SECOND_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (33, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (34, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (35, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (36, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (37, 'FIRST_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (38, 'SECOND_LINE_MANAGER');
-INSERT INTO public.person_role (id_person, role) VALUES (39, 'CEO');
-INSERT INTO public.person_role (id_person, role) VALUES (40, 'CTO');
-INSERT INTO public.person_role (id_person, role) VALUES (41, 'PERSON');
-INSERT INTO public.person_role (id_person, role) VALUES (42, 'PERSON');
-
-
 --
 -- TOC entry 2253 (class 0 OID 18056)
 -- Dependencies: 210
@@ -392,3 +342,58 @@ INSERT INTO public.relationship (id_relationship, note, id_person1, id_person2, 
 INSERT INTO public.relationship (id_relationship, note, id_person1, id_person2, id_relationship_type) VALUES (nextval('relationship_id_relationship_seq'), NULL, 6, 34, 2);
 INSERT INTO public.relationship (id_relationship, note, id_person1, id_person2, id_relationship_type) VALUES (nextval('relationship_id_relationship_seq'), NULL, 5, 34, 2);
 INSERT INTO public.relationship (id_relationship, note, id_person1, id_person2, id_relationship_type) VALUES (nextval('relationship_id_relationship_seq'), NULL, 1, 24, 2);
+
+--
+-- Roles in the system
+--
+INSERT INTO public.role (id_role, name, description) VALUES (nextval('role_id_role_seq'), 'USER', 'User role');
+INSERT INTO public.role (id_role, name, description) VALUES (nextval('role_id_role_seq'), 'ADMIN', 'Admin role');
+INSERT INTO public.role (id_role, name, description) VALUES (nextval('role_id_role_seq'), 'CEO', 'Chief Executive Officer role');
+INSERT INTO public.role (id_role, name, description) VALUES (nextval('role_id_role_seq'), 'CTO', 'Chief Technical Officer role');
+
+--
+-- Person roles in the system
+--
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 1,2,'2008-01-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 2,1,'2018-03-02 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 3,1,'2012-04-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 4,1,'2013-03-06 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 5,1,'2005-04-02 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 6,1,'2003-08-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 7,1,'2020-08-09 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 8,1,'2012-03-06 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 9,1,'2011-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 10,1,'2004-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 11,1,'2020-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 12,1,'2016-05-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 13,1,'2014-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 14,1,'2012-03-04 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 15,1,'2007-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 16,1,'2006-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 17,1,'2004-01-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 18,1,'2005-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 19,1,'2006-03-07 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 20,1,'2014-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 21,1,'2016-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 22,1,'2017-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 23,1,'2015-06-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 24,1,'2014-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 25,1,'2013-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 26,1,'2012-05-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 27,1,'2011-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 28,1,'2005-08-07 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 29,1,'2007-04-07 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 30,1,'2006-03-04 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 31,1,'2008-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 32,1,'2008-06-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 33,1,'2008-03-09 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 34,1,'2016-09-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 35,1,'2008-03-04 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 36,1,'2013-04-05 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 37,1,'2007-03-05 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 38,1,'2008-05-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 39,1,'2016-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 40,1,'2013-09-07 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 41,1,'2006-09-04 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 42,1,'2016-03-03 06:00:00',NULL);
+INSERT INTO public.person_has_role (id_person_has_role, id_person, id_role, date_created, date_deleted) VALUES (nextval('person_has_role_id_person_has_role_seq'), 43,1,'2008-06-03 06:00:00',NULL);
